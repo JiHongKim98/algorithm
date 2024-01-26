@@ -1,0 +1,22 @@
+# Reference
+Ref.txt
+
+# Virtual environments
+venv/
+env/
+.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Compiled Python files
+*.pyc
+
+# Log files
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
