@@ -1,10 +1,12 @@
 # 24/01/27
 
-# 전화번호 목록 문제
+# 프로그래머스 - 전화번호 목록
 
-# - 특정 문자가 다른 문자의 접두어 일경우 False
-#
-# - 출력: boolean
+# https://school.programmers.co.kr/learn/courses/30/lessons/42577
+
+## - 특정 문자가 다른 문자의 접두어 일경우 False
+##
+## - 출력: boolean
 
 
 def solution(phone_book):

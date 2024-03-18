@@ -1,12 +1,14 @@
 # 24/01/27
 
-# 완주하지 못한 선수 문제
+# 프로그래머스 - 완주하지 못한 선수
 
-# - participant : 참가자
-# - completion : 완주자
-# - 단 한 명의 선수를 제외하고 모두 완주
-#
-# - 출력: 완주하지 못한 선수 출력
+# https://school.programmers.co.kr/learn/courses/30/lessons/42576
+
+## - participant : 참가자
+## - completion : 완주자
+## - 단 한 명의 선수를 제외하고 모두 완주
+##
+## - 출력: 완주하지 못한 선수 출력
 
 
 # hash 테이블 증/감 연산으로 풀이한 것
