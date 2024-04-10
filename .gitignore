@@ -20,3 +20,9 @@ __pycache__/
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+# IDEA
+out/
+algorithm.iml
+.idea/
+.vscode/
