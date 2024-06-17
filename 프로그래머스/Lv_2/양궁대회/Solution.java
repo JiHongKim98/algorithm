@@ -31,20 +31,26 @@ class Solution {
 		return answer;
 	}
 
-	private static void DFS(int[] apeachMap, int depth, int start) {
-		// 종료 조건
+	private static void DFS(int[] apeachMap, int depth, int index) {
+		// 종료 조건1
 		if (depth == maxArrow) {  // 더이상 날릴 화살이 없는 경우
 			점수의_최대_차이_갱신(apeachMap);
 			return;
 		}
 
-		// 과녁 `i` 에 라이언이 어피치보다 더 많이 맞출 때까지 DFS
-		for (int i = start; i < apeachMap.length; i++) {
-			ryanMap[i] += 1;
-			DFS(apeachMap, depth + 1, i);
-
-			ryanMap[i] -= 1;  // 라이언 과녁 배열 원상태로 복구
+		// 종료 조건2
+		if (index >= apeachMap.length) {  // 과녁의 배열 길이를 초과한 경우
+			return;
 		}
+
+		// 현재 과녁 index 에 화살을 쏘는 경우
+		ryanMap[index] += 1;
+		DFS(apeachMap, depth + 1, index);  // 화살을 사용한 상태로 다음 탐색
+
+		ryanMap[index] -= 1;  // 원상태로 복구
+
+		// 현재 과녁 index 에 화살을 쏘지 않는 경우
+		DFS(apeachMap, depth, index + 1);  // 화살을 사용하지 않고 다음 인덱스로 이동
 	}
 
 	private static void 점수의_최대_차이_갱신(int[] apeachMap) {
@@ -72,6 +78,8 @@ class Solution {
 		}
 	}
 
+	// 1차 제출에서 최대 점수 차이의 경우의 수가 여러개인 케이스를 고려하지 않아 실패했습니다...
+	// -> 최대 점수 차이가 여러개인 경우 낮은 점수를 더 많이 맞춘 경우의 수로 반환
 	private static boolean 더_낮은_점수를_많이_맞힌_경우(int[] ryanMap, int[] answer) {
 		for (int i = 10; i >= 0; i--) {
 			if (ryanMap[i] > answer[i]) {
