@@ -1,48 +1,48 @@
-// 아직 못품
-
-package 바이러스_2606;
-/* 백준(그래프) - 바이러스
+/*
+ * 백준(그래프) - 바이러스
  *
  * https://www.acmicpc.net/problem/2606
  */
+package 바이러스_2606;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 
 class Main {
 
-	private static Map<Integer, List<Integer>> map = new HashMap<>();
-
 	public static void main(String[] args) throws IOException {
-		Scanner sc = new Scanner(System.in);
-		int maxNode = sc.nextInt();
-		int maxLink = sc.nextInt();
+		Scanner scanner = new Scanner(System.in);
+		int node = scanner.nextInt();
+		int link = scanner.nextInt();
 
-		map = new HashMap<>();
+		boolean[] visit = new boolean[node + 1];
+		boolean[][] map = new boolean[node + 1][node + 1];
 
-		for (int i = 0; i < maxLink; i++) {
-			int i1 = sc.nextInt();
-			int i2 = sc.nextInt();
-
-			map.putIfAbsent(i1, new ArrayList<>());
-			map.get(i1).add(i2);
-
-			map.putIfAbsent(i2, new ArrayList<>());
-			map.get(i2).add(i1);
+		for (int i = 0; i < link; i++) {
+			int node1 = scanner.nextInt();
+			int node2 = scanner.nextInt();
+			map[node1][node2] = map[node2][node1] = true;
 		}
 
-		DFS(0, 1, map);
-	}
+		Queue<Integer> queue = new LinkedList<>();
+		queue.add(1);
+		visit[1] = true;
 
-	private static void DFS(int count, int startIdx, Map<Integer, List<Integer>> map) {
-		List<Integer> integers = map.get(startIdx);
+		int count = 0;
+		while (!queue.isEmpty()) {
+			int now = queue.poll();
 
-		for (Integer i : integers) {
-			DFS(count + 1, i, map);
+			for (int i = 1; i <= node; i++) {
+				if (!visit[i] && map[now][i]) {
+					queue.add(i);
+					count++;
+					visit[i] = true;
+				}
+			}
 		}
+
+		System.out.println(count);
 	}
 }
