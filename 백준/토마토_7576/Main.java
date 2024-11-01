@@ -1,7 +1,7 @@
 /*
  * 백준 - 토마토
  *
- * https://www.acmicpc.net/problem/1074
+ * https://www.acmicpc.net/problem/7576
  */
 package 토마토_7576;
 
