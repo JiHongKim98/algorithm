@@ -3,7 +3,7 @@
  *
  * https://school.programmers.co.kr/learn/courses/30/lessons/72414
  */
-package Lv_2.광고_삽입;
+package Lv_3.광고_삽입;
 
 class Solution {
     public String solution(String play_time, String adv_time, String[] logs) {
